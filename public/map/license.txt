@@ -1,0 +1,11 @@
+Model Information:
+* title:	Adventure Map
+* source:	https://sketchfab.com/3d-models/adventure-map-553b41ef1c0e489a999844139b78f6d9
+* author:	TraianDumbrava (https://sketchfab.com/TraianDumbrava)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Adventure Map" (https://sketchfab.com/3d-models/adventure-map-553b41ef1c0e489a999844139b78f6d9) by TraianDumbrava (https://sketchfab.com/TraianDumbrava) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

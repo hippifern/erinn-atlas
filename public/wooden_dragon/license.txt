@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wooden Dragon
+* source:	https://sketchfab.com/3d-models/wooden-dragon-9e80d8eaf71e454594b26def4d558231
+* author:	klava88 (https://sketchfab.com/klava88)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wooden Dragon" (https://sketchfab.com/3d-models/wooden-dragon-9e80d8eaf71e454594b26def4d558231) by klava88 (https://sketchfab.com/klava88) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
