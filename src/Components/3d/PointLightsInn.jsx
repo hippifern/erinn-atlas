@@ -1,7 +1,3 @@
-import { useHelper } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-import { PointLightHelper } from "three";
 import SinglePointLight from "./SinglePointLight";
 
 function PointLightsInn() {

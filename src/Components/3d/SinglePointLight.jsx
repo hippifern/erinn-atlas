@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 import { useHelper } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
