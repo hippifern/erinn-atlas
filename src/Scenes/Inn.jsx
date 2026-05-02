@@ -6,9 +6,12 @@ import ModelLoader from "../Components/3d/ModelLoader";
 import SwayCamera from "../Components/3d/SwayCamera";
 import { modelData } from "../data/modelData";
 import { innScene } from "../data/sceneData";
+import { innPopupData } from "../data/innPopupData";
 import { innCameraData } from "../data/cameraData";
 import { useRef, useState } from "react";
 import gsap from "gsap";
+import Popup from "../Components/UI/Popup";
+import CloseButton from "../Components/UI/CloseButton";
 
 function InnScene() {
     // Core position & asset data
@@ -26,7 +29,19 @@ function InnScene() {
 
     // stores swayCamera active/inactive state
     const [active, setActive] = useState(true);
+    const [UIactive, setUIActive] = useState(false);
+
     const camRef = useRef();
+    const popupRef = useRef();
+
+    const [activePopup, setActivePopup] = useState({});
+
+    const handleModelClick = (e, pos, data) => {
+        e.stopPropagation();
+        moveCam(pos);
+        setActivePopup(data);
+        animatePopupIn();
+    };
 
     const moveCam = (activePosition) => {
         // sets sway false on first movement frame
@@ -55,8 +70,38 @@ function InnScene() {
         });
     };
 
+    const animatePopupIn = () => {
+        setUIActive(true);
+        gsap.to(popupRef.current, {
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.inOut",
+        });
+    };
+
+    const animatePopupOut = () => {
+        gsap.to(popupRef.current, {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.inOut",
+            onComplete: () => {
+                setUIActive(false);
+            },
+        });
+    };
+
     return (
         <div className="canvas-container">
+            <div className={UIactive ? "ui" : "ui ui-off"}>
+                <Popup data={activePopup} ref={popupRef}>
+                    <CloseButton
+                        onclick={() => {
+                            animatePopupOut();
+                            moveCam(defaultPosition);
+                        }}
+                    />
+                </Popup>
+            </div>
             <Canvas shadows>
                 <color attach="background" args={[innScene.backgroundCol]} />
                 {/* <CamLog /> */}
@@ -76,8 +121,7 @@ function InnScene() {
         <OrbitControls /> */}
                 <ModelLoader
                     handleClick={(e) => {
-                        e.stopPropagation();
-                        moveCam(shieldPosition);
+                        handleModelClick(e, shieldPosition, innPopupData[0]);
                     }}
                     scene={`/${shield.folderName}/scene.gltf`}
                     scale={shield.scale}

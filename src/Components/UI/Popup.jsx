@@ -1,6 +1,7 @@
-function Popup({ children }) {
+function Popup({ children, data, ref }) {
+    console.log(data);
     return (
-        <div className="popup-outer-container">
+        <div ref={ref} className="popup-outer-container">
             <div className="popup-inner-container">{children}</div>
             <div className="corner top-left"></div>
             <div className="corner top-right"></div>
