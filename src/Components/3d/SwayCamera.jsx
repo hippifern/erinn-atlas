@@ -1,9 +1,8 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
 import { Vector3 } from "three";
 
-function SwayCamera({ ref, position, rotation }) {
+function SwayCamera({ ref, position, rotation, active = true }) {
   useFrame(({ pointer }) => {
     if (!ref) return;
 
@@ -16,7 +15,7 @@ function SwayCamera({ ref, position, rotation }) {
       position[2],
     );
 
-    ref.current.position.lerp(targetPosition, 0.04);
+    if (active) ref.current.position.lerp(targetPosition, 0.04);
   });
 
   return (
