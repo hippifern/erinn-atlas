@@ -4,7 +4,7 @@ import PointLightsInn from "../Components/3d/PointLightsInn";
 import CamLog from "../Components/debug_3d/CamLog";
 import ModelLoader from "../Components/3d/ModelLoader";
 import SwayCamera from "../Components/3d/SwayCamera";
-import { modelData } from "../data/modelData";
+import { modelData, textData } from "../data/modelData";
 import { innScene } from "../data/sceneData";
 import { innPopupData } from "../data/innPopupData";
 import { innCameraData } from "../data/cameraData";
@@ -16,6 +16,8 @@ import CloseButton from "../Components/UI/CloseButton";
 function InnScene() {
     // Core position & asset data
     const { inn, shield, wooden_dragon, deer, map } = modelData;
+    const { shieldText, wooden_dragonText, deerText, mapText } = textData;
+
     const {
         defaultPosition,
         shieldPosition,
@@ -127,36 +129,37 @@ function InnScene() {
                     scale={shield.scale}
                     position={shield.position}
                     rotation={shield.rotation}
+                    textData={shieldText}
                 />
                 <ModelLoader
                     handleClick={(e) => {
-                        e.stopPropagation();
-                        moveCam(dragonPosition);
+                        handleModelClick(e, dragonPosition, innPopupData[1]);
                     }}
                     scene={`/${wooden_dragon.folderName}/scene.gltf`}
                     scale={wooden_dragon.scale}
                     position={wooden_dragon.position}
                     rotation={wooden_dragon.rotation}
+                    textData={wooden_dragonText}
                 />
                 <ModelLoader
                     handleClick={(e) => {
-                        e.stopPropagation();
-                        moveCam(deerPosition);
+                        handleModelClick(e, deerPosition, innPopupData[2]);
                     }}
                     scene={`/${deer.folderName}/scene.gltf`}
                     scale={deer.scale}
                     position={deer.position}
                     rotation={deer.rotation}
+                    textData={deerText}
                 />
                 <ModelLoader
                     handleClick={(e) => {
-                        e.stopPropagation();
-                        moveCam(mapPosition);
+                        handleModelClick(e, mapPosition, innPopupData[3]);
                     }}
                     scene={`/${map.folderName}/scene.gltf`}
                     scale={map.scale}
                     position={map.position}
                     rotation={map.rotation}
+                    textData={mapText}
                 />
                 <ModelLoader
                     scene={`/${inn.folderName}/scene.gltf`}
